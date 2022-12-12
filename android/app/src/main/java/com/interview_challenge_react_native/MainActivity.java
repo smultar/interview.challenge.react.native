@@ -4,6 +4,9 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 
+// Add the following imports per https://reactnavigation.org/docs/getting-started#installing-dependencies-into-a-bare-react-native-project
+import android.os.Bundle;
+
 public class MainActivity extends ReactActivity {
 
   /**
@@ -13,6 +16,14 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "interview_challenge_react_native";
+  }
+
+
+  // This is the new method that we need to override to enable the New Architecture.
+  // More on this on https://reactnavigation.org/docs/getting-started#installing-dependencies-into-a-bare-react-native-project
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
   }
 
   /**
