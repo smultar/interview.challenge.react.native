@@ -21,9 +21,9 @@ const TextLogo = ({ text, icon, bold, size, color, margin }) => {
 }
 
 const Tag = ({ text, bold, size, color, marginL, marginR }) => {
-
+    console.log(marginL);
     return (
-        <View style={[scss.rowCenter, { backgroundColor: '#F2F2F2', borderRadius: Normalize(10), padding: Normalize(10), marginLeft: marginL ? Normalize(marginL) : Normalize(10) }]}>
+        <View style={[scss.rowCenter, { backgroundColor: '#F2F2F2', borderRadius: Normalize(10), padding: Normalize(10), marginLeft: (marginL !== undefined) ? Normalize(marginL) : Normalize(10),  marginRight: (marginR !== undefined)  ? Normalize(marginR) : Normalize(10) }]}>
             <TextLogo text={text} bold={bold} size={size} color={color} margin={0} />
         </View>
     )
