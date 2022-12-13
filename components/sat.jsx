@@ -13,7 +13,7 @@ const SAT = ({ scores }) => {
     // ? Id is the id of the school. This is used to navigate to the school page.
 
     return (
-        <TouchableOpacity style={{ backgroundColor: '#F2F2F2', borderRadius: Normalize(8), marginTop: Normalize(20)}}>
+        <View style={{ backgroundColor: '#F2F2F2', borderRadius: Normalize(8), marginTop: Normalize(20)}}>
             <View style={[scss.satTop, { borderBottomWidth: 1, borderBottomColor: 'white' }]}>
                 <TextLogo icon={icons.award} text='Scholastic Assessment Test (SAT)' bold size={14} color='black' margin={10}/>
                 <TextLogo text={scores?.number? `Average scores amongst ${scores.number} students` : 'Average scores amongst students'} size={12} color='#9A9A9A'/>
@@ -36,7 +36,7 @@ const SAT = ({ scores }) => {
                     <TextLogo text={scores.writing} size={12} color='black' />
                 </View>
             </View>
-        </TouchableOpacity>
+        </View>
     )
 }
 
