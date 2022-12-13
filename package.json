@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@lyrasearch/lyra": "^0.3.1",
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.6",
     "glob": "^8.0.3",
