@@ -13,8 +13,6 @@ const SplashScreen = ({ navigation, route }) => {
     const { dbn } = route.params;
     const school = getSchools(dbn);
 
-    console.log(school);
-
     return (
         <View style={[scss.frame]}>
             <StatusBar backgroundColor='#fff' barStyle='dark-content' />
