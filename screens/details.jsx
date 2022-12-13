@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StatusBar, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StatusBar, ScrollView, TouchableOpacity, Image } from 'react-native';
 
 import scss from '../assets/styles/base';
 import { Normalize } from '../utilities/font';
@@ -28,8 +28,8 @@ const SplashScreen = ({ navigation, route }) => {
                         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                             {
                                 school.perks.map((sport, index) => {
-                                        if (index == 0) return <Tag key={index} text={sport} size={10} marginL={20} marginT={0}/>
-                                        return <Tag key={index} text={sport} size={10} marginL={10} marginT={0}/>
+                                        if (index == 0) return <Tag key={index} text={sport} size={10} marginL={20} marginR={0} marginT={0}/>
+                                        return <Tag key={index} text={sport} size={10} marginL={10} marginR={0} marginT={0}/>
                                     }
                                 )
                             }
@@ -99,7 +99,9 @@ const SplashScreen = ({ navigation, route }) => {
                 </View>
             </ScrollView>
             
-            
+            <TouchableOpacity style={[{ marginTop: Normalize(10), padding: Normalize(10), position: 'absolute', display: 'flex', height: Normalize(40), width: Normalize(40), borderRadius: Normalize(8), right: 20}]} onPress={() => navigation.goBack()}>
+                <Image source={icons.back} style={{ width: Normalize(20), height: Normalize(20), resizeMode: 'contain' }} />
+            </TouchableOpacity>
         </View>
     );
 };

@@ -15,6 +15,10 @@ const icons = {
     reading: require('./icons/reading.png'),
     writing: require('./icons/writing.png'),
     sports: require('./icons/sports.png'),
+    hash: require('./icons/hash.png'),
+    specialize: require('./icons/specialize.png'),
+    slider: require('./icons/slider.png'),
+    back: require('./icons/back.png'),
 };
 
 export default icons;

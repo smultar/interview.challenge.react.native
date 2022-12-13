@@ -36,6 +36,7 @@ let extracted = schoolsList.map((school) => {
             description: school.overview_paragraph,
             program1: school.program1,
             interest1: school.interest1,
+            extra: school?.extracurricular_activities?.split(';').map((activity) => activity.trim()),
             code1: school.code1,
             email: school.school_email,
             perks: school.addtl_info1?.split(';').map((perk) => perk.trim()),
@@ -93,6 +94,16 @@ schools.forEach((school) => insert(searchDB, school));
 // Maps each school by it DBN
 formattedSchools.map((school) => schoolsMap.set(school.dbn, school));
 
+let activities = formattedSchools.map((school) => school?.extra).flat();
+
+activities = activities.map((activity) => activity?.split(',')).flat();
+activities = activities.map((activity) => activity?.trim()).flat();
+activities = Array.from(new Set(activities));
+
+let specialties = formattedSchools.map((school) => school?.interest1).flat();
+specialties = Array.from(new Set(specialties));
+
+specialties = specialties.filter((specialty) => specialty !== undefined);
 
 // Functional exports
 const getSchools = (dbn) => {
@@ -105,5 +116,4 @@ const searchSchools = (query) => {
 };
 
 
-
-export { getSchools, schools, searchSchools };
+export { getSchools, schools, searchSchools, activities, specialties };

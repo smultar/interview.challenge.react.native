@@ -19,7 +19,7 @@ const Preview = ({ school, navigation }) => {
 
                 <View style={[scss.rowCenter, { marginTop: Normalize(10)}]}>
                     <TextLogo text={(school?.students) ? `Students: ${school.students}` : 'No student count.'} size={14} color='black' margin={Normalize(10)}/>
-                    <TextLogo text={(school?.attendance) ? `Attendance: ${(school.attendance * 100).toFixed()}%` : 'No student count.'} size={14} color='black'/>
+                    <TextLogo text={(school?.attendance) ? `Attendance: ${school.attendance}%` : 'No student count.'} size={14} color='black'/>
                 </View>
             </View>
             
