@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StatusBar, FlatList, TextInput, ScrollView } from 'react-native';
+import { View, Text, StatusBar, ScrollView, TouchableOpacity } from 'react-native';
 
 import scss from '../assets/styles/base';
 import { Normalize } from '../utilities/font';
@@ -28,8 +28,8 @@ const SplashScreen = ({ navigation, route }) => {
                         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                             {
                                 school.perks.map((sport, index) => {
-                                        if (index == 0) return <Tag key={index} text={sport} size={10} marginL={20}/>
-                                        return <Tag key={index} text={sport} size={10} marginL={10}/>
+                                        if (index == 0) return <Tag key={index} text={sport} size={10} marginL={20} marginT={0}/>
+                                        return <Tag key={index} text={sport} size={10} marginL={10} marginT={0}/>
                                     }
                                 )
                             }
@@ -42,27 +42,59 @@ const SplashScreen = ({ navigation, route }) => {
                 </View>
 
             </View>
+            <ScrollView style={scss.full}>
+                <View style={scss.frame}>
+                    <View style={scss.padded}>
 
-            <View style={scss.padded}>
-                <View style={{ marginTop: Normalize(20)}}>
-                    <TextLogo text={'Description'} size={14} color='black' margin={Normalize(10)} bold />
-                    <TextLogo text={school.description} size={12} color='#979797' margin={Normalize(10)}/>
-                </View>
+                        {/* Description */}
+                        <View style={{ marginTop: Normalize(20)}}>
+                            <TextLogo text={'Description'} size={14} color='black' margin={Normalize(10)} bold />
+                            <View style={{ marginTop: Normalize(10 ) }}>
+                                <TextLogo text={school.description} size={12} color='#979797' margin={Normalize(10)}/>
+                            </View>
+                        </View>
 
-                <SAT scores={school.scores}/>
+                        {/* SAT Scores */}
+                        <SAT scores={school.scores}/>
 
-                <View style={[ scss.full, { marginTop: Normalize(20)} ]}>
-                    <TextLogo icon={icons.sports} text={'Extracurricular Activities'} size={14} color='black' margin={Normalize(10)} bold />
-                    <View style={[ scss.rowCenter, { marginTop: Normalize(10 ), backgroundColor: 'red'} ]}>
-                        { school?.sports && school?.sports.length > 0 && school.sports.map((sport, index) => <Tag key={index} text={sport} size={12} color='black' marginL={0} marginR={10} />) }
+                        {/* Extra Activities */}
+                        <View style={[ scss.full, { marginTop: Normalize(20)} ]}>
+                            <TextLogo icon={icons.sports} text={'Extracurricular Activities'} size={14} color='black' margin={Normalize(10)} bold />
+                            <View style={[ scss.rowCenter, { flexWrap: 'wrap', marginTop: Normalize(10) } ]}>
+                                { school?.sports && school?.sports.length > 0 && school.sports.map((sport, index) => <Tag key={index} text={sport} size={12} color='black' marginL={0} marginR={10} marginT={10} />) }
+                            </View>
+                        </View>
+
+                        {/* Contact */}
+                        <View style={[ scss.full, { marginTop: Normalize(20), paddingBottom: Normalize(20) } ]}>
+                            <TextLogo text={'Contact Information'} size={14} color='black' margin={Normalize(10)} bold />
+                            <View style={{ marginTop: Normalize(10 ) }}>
+                                {/* Writing */}
+                                { school?.website &&
+                                    <TouchableOpacity style={[scss.rowCenter, scss.spaceRow, scss.full, { marginTop: Normalize(0), backgroundColor: '#F2F2F2', borderRadius: Normalize(10), padding: Normalize(10) }]}>
+                                        <TextLogo icon={icons.website} text={'Visit website'} size={12} color='black' />
+                                        <TextLogo text={school.website} size={12} color='black' />
+                                    </TouchableOpacity>
+                                }
+                                {/* Writing */}
+                                { school?.phone &&
+                                    <TouchableOpacity style={[scss.rowCenter, scss.spaceRow, scss.full, { marginTop: Normalize(10), backgroundColor: '#F2F2F2', borderRadius: Normalize(10), padding: Normalize(10) }]}>
+                                        <TextLogo icon={icons.phone} text={'Phone Number'} size={12} color='black' />
+                                        <TextLogo text={school.phone} size={12} color='black' />
+                                    </TouchableOpacity>
+                                }
+                                {/* Writing */}
+                                { school?.email &&
+                                    <TouchableOpacity style={[scss.rowCenter, scss.spaceRow, scss.full, { marginTop: Normalize(10), backgroundColor: '#F2F2F2', borderRadius: Normalize(10), padding: Normalize(10) }]}>
+                                        <TextLogo icon={icons.email} text={'Email'} size={12} color='black' />
+                                        <TextLogo text={school.email} size={12} color='black' />
+                                    </TouchableOpacity>
+                                }
+                            </View>
+                        </View>
                     </View>
                 </View>
-                
-                <View>
-                    
-                </View>
-
-            </View>
+            </ScrollView>
             
             
         </View>
