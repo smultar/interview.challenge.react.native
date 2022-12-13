@@ -48,7 +48,15 @@ const SplashScreen = ({ navigation, route }) => {
                     <TextLogo text={'Description'} size={14} color='black' margin={Normalize(10)} bold />
                     <TextLogo text={school.description} size={12} color='#979797' margin={Normalize(10)}/>
                 </View>
-                <SAT scores={school.scores} />
+
+                <SAT scores={school.scores}/>
+
+                <View style={[ scss.full, { marginTop: Normalize(20)} ]}>
+                    <TextLogo icon={icons.sports} text={'Extracurricular Activities'} size={14} color='black' margin={Normalize(10)} bold />
+                    <View style={[ scss.rowCenter, { marginTop: Normalize(10 ), backgroundColor: 'red'} ]}>
+                        { school?.sports && school?.sports.length > 0 && school.sports.map((sport, index) => <Tag key={index} text={sport} size={12} color='black' marginL={0} marginR={10} />) }
+                    </View>
+                </View>
                 
                 <View>
                     
