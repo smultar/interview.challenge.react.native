@@ -4,7 +4,6 @@ import scss from '../assets/styles/base';
 import icons from '../assets/icons';
 import { Normalize } from '../utilities/font';
 import { TextLogo } from './elements';
-import { useNavigation } from '@react-navigation/native';
 
 const Preview = ({ school, navigation }) => {
 
