@@ -6,6 +6,7 @@ import { Normalize } from '../utilities/font';
 import { getSchools } from '../assets/internal';
 
 import { Tag, TextLogo } from '../components/elements';
+import SAT from '../components/sat';
 import icons from '../assets/icons';
 
 const SplashScreen = ({ navigation, route }) => {
@@ -47,6 +48,7 @@ const SplashScreen = ({ navigation, route }) => {
                     <TextLogo text={'Description'} size={14} color='black' margin={Normalize(10)} bold />
                     <TextLogo text={school.description} size={12} color='#979797' margin={Normalize(10)}/>
                 </View>
+                <SAT scores={school.scores} />
                 
                 <View>
                     

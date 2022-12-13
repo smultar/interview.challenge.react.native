@@ -4,8 +4,9 @@ import scss from '../assets/styles/base';
 import icons from '../assets/icons';
 import { Normalize } from '../utilities/font';
 import { TextLogo } from './elements';
+import { schools } from '../assets/internal';
 
-const SAT = ({ score }) => {
+const SAT = ({ scores }) => {
 
     // School is an object that contains all of the specialty, location, and name of the school.
     // If no icon is provided, then the default icon is the school icon.
@@ -13,17 +14,27 @@ const SAT = ({ score }) => {
 
     return (
         <TouchableOpacity style={{ backgroundColor: '#F2F2F2', borderRadius: Normalize(8), marginTop: Normalize(20)}}>
-            <View style={[scss.browsePaddingLower, { borderBottomWidth: 1, borderBottomColor: 'white' }]}>
-                <TextLogo icon={icons.award} text='Scholastic Assessment Test (SAT)' bold size={14} color='black'/>
-                <TextLogo text={score?.number? `Average scores amongst ${score.number} students` : 'Average scores amongst students'} size={14} color='#9A9A9A'/>
-
+            <View style={[scss.satTop, { borderBottomWidth: 1, borderBottomColor: 'white' }]}>
+                <TextLogo icon={icons.award} text='Scholastic Assessment Test (SAT)' bold size={14} color='black' margin={10}/>
+                <TextLogo text={scores?.number? `Average scores amongst ${scores.number} students` : 'Average scores amongst students'} size={12} color='#9A9A9A'/>
             </View>
             
-            <View style={[scss.browsePaddingLower, scss.spaceRow]}>
-                <TextLogo text={school.location ?? 'Location'} icon={icons.location} size={12} color='black' />
-                <TouchableOpacity style={{ backgroundColor: 'black', borderRadius: Normalize(25) }} onPress={() => navigation.navigate('Details', { dbn: school.dbn })}>
-                    <Text style={{ color: 'white', padding: Normalize(10) }}>View School</Text>
-                </TouchableOpacity>
+            <View style={[scss.satBot, scss.col]}>
+                {/* Reading */}
+                <View style={[scss.rowCenter, scss.spaceRow, scss.full, { marginTop: Normalize(15) }]}>
+                    <TextLogo icon={icons.reading} text={'Reading'} size={12} color='black' />
+                    <TextLogo text={scores.reading} size={12} color='black' />
+                </View>
+                {/* Math */}
+                <View style={[scss.rowCenter, scss.spaceRow, scss.full, { marginTop: Normalize(15) }]}>
+                    <TextLogo icon={icons.math} text={'Math'} size={12} color='black' />
+                    <TextLogo text={scores.math} size={12} color='black' />
+                </View>
+                {/* Writing */}
+                <View style={[scss.rowCenter, scss.spaceRow, scss.full, { marginTop: Normalize(15) }]}>
+                    <TextLogo icon={icons.writing} text={'Writing'} size={12} color='black' />
+                    <TextLogo text={scores.writing} size={12} color='black' />
+                </View>
             </View>
         </TouchableOpacity>
     )
