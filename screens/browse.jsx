@@ -53,7 +53,7 @@ const SplashScreen = ({ navigation }) => {
 
     useEffect(() => {
 
-        
+
 
         let results;
         if (search.value == '' || search.value == null) {
@@ -128,6 +128,11 @@ const SplashScreen = ({ navigation }) => {
 
                 {/* Search Results */}
                 <View style={{ height: '47.6%'}}>
+                    {   search.results.length == 0 && 
+                        <View style={[scss.center, scss.full, { marginTop: Normalize(20) }]}>
+                            <Text style={[scss.title, {fontSize: Normalize(14), color: 'black'}]}>No results found for <Text style={scss.bold}>{search.value}</Text></Text>
+                        </View>
+                    }
                     <FlatList data={search.results} extraData={search.results} renderItem={({item}) => <Preview key={item.dbn} school={item} navigation={navigation}></Preview>} showsVerticalScrollIndicator={false}></FlatList>
                 </View>
 
