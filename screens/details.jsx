@@ -58,12 +58,15 @@ const SplashScreen = ({ navigation, route }) => {
                         <SAT scores={school.scores}/>
 
                         {/* Extra Activities */}
-                        <View style={[ scss.full, { marginTop: Normalize(20)} ]}>
-                            <TextLogo icon={icons.sports} text={'Extracurricular Activities'} size={14} color='black' margin={Normalize(10)} bold />
-                            <View style={[ scss.rowCenter, { flexWrap: 'wrap', marginTop: Normalize(10) } ]}>
-                                { school?.sports && school?.sports.length > 0 && school.sports.map((sport, index) => <Tag key={index} text={sport} size={12} color='black' marginL={0} marginR={10} marginT={10} />) }
+                        { school?.sports && school?.sports.length > 0 &&
+                            <View style={[ scss.full, { marginTop: Normalize(20)} ]}>
+                                <TextLogo icon={icons.sports} text={'Extracurricular Activities'} size={14} color='black' margin={Normalize(10)} bold />
+                                <View style={[ scss.rowCenter, { flexWrap: 'wrap', marginTop: Normalize(10) } ]}>
+                                    { school?.sports && school?.sports.length > 0 && school.sports.map((sport, index) => <Tag key={index} text={sport} size={12} color='black' marginL={0} marginR={10} marginT={10} />) }
+                                </View>
                             </View>
-                        </View>
+                        }
+
 
                         {/* Contact */}
                         <View style={[ scss.full, { marginTop: Normalize(20), paddingBottom: Normalize(20) } ]}>
