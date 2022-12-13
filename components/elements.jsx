@@ -15,9 +15,18 @@ const TextLogo = ({ text, icon, bold, size, color, margin }) => {
             { icon && 
                 <Image style={[scss.browseContentImage, { width: 24, height: 24 }]} source={icon ?? icons.compass} resizeMode='contain'></Image>
             }
-            <Text style={[bold ? scss.bold : scss.font, { fontSize: Normalize(size) ?? Normalize(14), color: color ?? 'black', marginRight: margin ?? 10 }, ]}>{text ?? 'No text provided'}</Text>
+            <Text style={[bold ? scss.bold : scss.font, { fontSize: size ? Normalize(size) : Normalize(14), color: color ?? 'black', marginRight: margin ?? 10 }, ]}>{text ?? 'No text provided'}</Text>
         </View>
     )
 }
 
-export { TextLogo };
+const Tag = ({ text, bold, size, color, marginL, marginR }) => {
+
+    return (
+        <View style={[scss.rowCenter, { backgroundColor: '#F2F2F2', borderRadius: Normalize(10), padding: Normalize(10), marginLeft: marginL ? Normalize(marginL) : Normalize(10) }]}>
+            <TextLogo text={text} bold={bold} size={size} color={color} margin={0} />
+        </View>
+    )
+}
+
+export { TextLogo, Tag };

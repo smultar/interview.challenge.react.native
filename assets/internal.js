@@ -24,20 +24,21 @@ let extracted = schoolsList.map((school) => {
             zip: school.zip,
             phone: school.phone_number,
             website: school.website,
-            total_students: school.total_students,
-            start_time: school.start_time,
-            end_time: school.end_time,
-            school_sports: school.school_sports,
-            attendance_rate: school.attendance_rate,
+            totalStudents: school.total_students,
+            start: school.start_time,
+            end: school.end_time,
+            sports: school.school_sports?.split(',').map((sport) => sport.trim()),
+            attendance: (school.attendance_rate * 100).toFixed(),
             pct_stu_enough_variety: school.pct_stu_enough_variety,
             pct_stu_safe: school.pct_stu_safe,
             school_accessibility_description: school.school_accessibility_description,
             neighborhood: school.neighborhood,
-            overview_paragraph: school.overview_paragraph,
+            description: school.overview_paragraph,
             program1: school.program1,
             interest1: school.interest1,
             code1: school.code1,
-            email: school.school_email
+            email: school.school_email,
+            perks: school.addtl_info1?.split(';').map((perk) => perk.trim()),
         }
     }
 );
@@ -64,8 +65,8 @@ let schools = formattedSchools.map((school) => {
             name: school.name,
             specialty: school.interest1,
             location: school.location,
-            students: +school.total_students,
-            attendance: +school.attendance_rate
+            students: +school.totalStudents,
+            attendance: +school.attendance
         }
     }
 );
