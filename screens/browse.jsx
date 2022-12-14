@@ -18,6 +18,7 @@ const SplashScreen = ({ navigation }) => {
         options: false
     });
 
+    // Search handling
     useEffect(() => {
         
         if (search.value == '') return setSearch({ ...search, results: [...schools] });
@@ -51,6 +52,7 @@ const SplashScreen = ({ navigation }) => {
 
     }, [search.value]);
 
+    // Filter handling
     useEffect(() => {
 
 
@@ -137,7 +139,6 @@ const SplashScreen = ({ navigation }) => {
                 </View>
 
             </View>
-            
             
         </View>
     );

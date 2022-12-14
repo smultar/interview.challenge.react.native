@@ -13,7 +13,7 @@ const SplashScreen = ({ navigation, route }) => {
     const { dbn } = route.params;
     const school = getSchools(dbn);
 
-    return (
+    if (school) return (
         <View style={[scss.frame]}>
             <StatusBar backgroundColor='#fff' barStyle='dark-content' />
             <View style={[scss.full, scss.center, scss.browseHeader, { borderBottomWidth: 1, borderBottomColor: '#CFCFCF'}]}>
@@ -102,6 +102,17 @@ const SplashScreen = ({ navigation, route }) => {
             </TouchableOpacity>
         </View>
     );
+
+    return (
+        <View style={[scss.frame, scss.center]}>
+            <StatusBar backgroundColor='#fff' barStyle='dark-content'/>
+            <Image source={icons.compass} style={{ width: 40, height: 40, marginBottom: Normalize(20) }}/>
+            <TextLogo text={'Seems an error occured, sorry about that.'} size={16} color='black' margin={Normalize(0)} bold />
+            <TouchableOpacity style={[{ marginTop: Normalize(5), padding: Normalize(10), height: Normalize(40), borderRadius: Normalize(8), }]} onPress={() => navigation.goBack()}>
+                <TextLogo text={'Go back'} size={14} color='black' margin={Normalize(0)} bold />
+            </TouchableOpacity>
+        </View>
+    )
 };
 
 export default SplashScreen;
