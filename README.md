@@ -15,3 +15,8 @@ I hope you enjoy exploring this solution to the challenge! If you have any quest
 
 PS.
 I also added my design files into the repository, so you can explore that as well. Since designing is heavily apart of my coding process.
+
+
+![image](https://user-images.githubusercontent.com/6223536/207892963-c7c69d34-0a19-41d1-b346-ce57a464de1a.png)
+![image](https://user-images.githubusercontent.com/6223536/207892996-ced1572b-19ba-427e-ba30-153d4b7ea9e0.png)
+![image](https://user-images.githubusercontent.com/6223536/207893037-2795b833-caad-44a9-b7ef-1b6fc92c6362.png)
